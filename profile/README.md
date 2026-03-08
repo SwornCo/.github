@@ -1,99 +1,94 @@
 # SWORN
 
-**Built for the Man You've Sworn to Become.**
+> Calm the urge. Keep the oath.
 
-SWORN is a scientifically-backed wellness brand focused on performance optimization and behavioral control. We combine neuroscience-based supplements with cutting-edge AI technology to help men reset their minds, refocus their energy, and reclaim their discipline.
+SWORN is the first daily discipline protocol built specifically for men who are done being controlled by their impulses. It combines a clinically-dosed drink mix, an AI-powered SMS accountability coach, and a daily streak tracker into one system — giving men the neurochemical support and structural accountability that willpower alone can't provide.
 
-## Our Mission
+**One scoop. One coach. One oath. Every day.**
 
-Help men break free from overstimulation and compulsive behaviors by restoring prefrontal cortex control through science-backed formulations and AI-powered accountability.
+## How It Works
 
-**Reset. Refocus. Reclaim.**
+1. **The Drink** — A black powder mix (activated charcoal, blood orange) containing NAC, KSM-66 Ashwagandha, L-Theanine, 5-HTP, L-Tryptophan, Vitamin B6, and Chasteberry. Taken when urges hit — the act of making it is the pattern interrupt.
+2. **The Coach** — A private AI SMS system that learns when you need it most and reaches out first. Always available when you reach out. It knows your name, your goal, and your patterns.
+3. **The Streak** — A daily scoreboard that tracks consecutive days of adherence, giving discipline a visible, protectable record.
 
-## What We Build
+| Plan | Price | Details |
+|------|-------|---------|
+| Subscribe & Save | $79/month | Free shipping, cancel anytime |
+| One-time Purchase | $99 | Single order |
 
-### Core Product: SWORN Daily Supplement
+## Repository Structure
 
-A daily powder supplement (one scoop a day, no pills) engineered to support:
-- Energy stability without crashes
-- Mental clarity and focus
-- Discipline reinforcement
-- Sleep and recovery optimization
+```
+sworn/
+├── ai-coach/            # SMS coaching backend (TypeScript/Express/Claude)
+├── ingredients-video/   # Remotion video generator for ingredient animations
+├── marketing/           # Brand, content, press, social — all marketing assets
+└── website/             # Eleventy marketing site (auto-deploys to Netlify)
+```
 
-Our formulations help the brain bypass compulsive dopamine loops, restoring balance and control. We use brain imaging to demonstrate measurable neurological improvements.
+Each directory is an independent git repository with its own remote.
 
-**Pricing:**
-- Subscribe & Save: $79/month (save $20, free shipping)
-- One-time Purchase: $99
+---
 
-### AI-Powered Accountability
+## AI Coach — [`ai-coach/`](ai-coach/)
 
-Personal AI companion system designed to support behavioral change through accountability, insights, and personalized guidance.
+TypeScript/Express backend that connects Shopify orders to a personalized SMS coaching experience powered by Claude. Handles the full user lifecycle: order → onboarding → daily check-ins → coaching → streak milestones → retention.
 
-## Repositories
+**Stack:** TypeScript · Express · PostgreSQL · Twilio · Anthropic Claude · node-cron
+**GitHub:** [SwornCo/ai-coach](https://github.com/SwornCo/ai-coach)
 
-### [website](https://github.com/SwornCo/website)
-Main marketing website and Shopify e-commerce platform. Single-page landing experience with product showcase, testimonials, brain science visuals, and purchase flow.
+```bash
+cd ai-coach && cp .env.example .env && npm install && npm run dev
+```
 
-**Technologies:** HTML5, SCSS, JavaScript, Swiper.js, Shopify Liquid
+---
 
-**Key Features:**
-- Responsive design (8 breakpoints)
-- AJAX cart integration
-- Subscription support
-- Shopify Online Store 2.0 theme
-- Accessible, semantic markup
+## Website — [`website/`](website/)
 
-### [ai-agents](https://github.com/SwornCo/ai-agents)
-Business operations AI agent system powered by Anthropic Claude API. Collection of specialized agents for engineering, marketing, product, and design workflows.
+The sworn.co marketing site. A responsive landing page built with Eleventy and SCSS, auto-deployed to Netlify on every push to `main`.
 
-**Technologies:** TypeScript, Node.js, Anthropic Claude API
+**Stack:** Eleventy (11ty) v3 · Nunjucks · SCSS/BEM · Vanilla JS · Swiper.js
+**GitHub:** [SwornCo/website](https://github.com/SwornCo/website)
 
-**Available Agents:**
-- **Frontend Developer** - UI implementation, components, accessibility
-- **Backend Architect** - API design, databases, infrastructure
-- **Content Creator** - Copywriting, brand voice, conversion optimization
-- **Trend Researcher** - Market analysis, competitive intelligence
-- **UX Researcher** - User research, analytics, usability testing
+```bash
+cd website && npm install && npm start
+```
 
-## Technology Stack
+---
 
-**Frontend:**
-- HTML5, CSS3/SCSS (BEM methodology)
-- Vanilla JavaScript (framework-agnostic)
-- Shopify Liquid templating
+## Marketing — [`marketing/`](marketing/)
 
-**Backend/Infrastructure:**
-- Shopify (e-commerce, subscriptions)
-- TypeScript/Node.js (AI agents)
-- Anthropic Claude API
+The single home for all brand, content, and campaign assets. Houses the product marketing context document (the source of truth read before any marketing task), approved copywriting, press releases, social media templates, science research, and strategic planning.
 
-**Development:**
-- Git workflows
-- Modular SCSS architecture
-- ESM modules
-- Performance-optimized assets
+**Key areas:** Brand guidelines · Copywriting · Press releases · Instagram pipeline · Google My Business · Science research · Strategy docs
 
-## Brand Colors
+```bash
+cd marketing
+# Content is mostly markdown/PDF — no build step
+# For Instagram post generation:
+cd social/instagram && node capture.mjs
+```
 
-- **Primary:** `#ff4939` (energetic red-orange)
-- **Dark:** `#101112` (near black)
-- **Light:** `#ebede9` (off-white)
+---
+
+## Ingredients Video — [`ingredients-video/`](ingredients-video/)
+
+Remotion-based video generator that creates ingredient breakdown animations for the website and social media channels.
+
+**Stack:** Remotion · React · TypeScript
+
+```bash
+cd ingredients-video && npm install && npx remotion studio
+```
+
+---
 
 ## Links
 
 - **Website:** [sworn.co](https://sworn.co)
-- **GitHub:** [@SwornCo](https://github.com/SwornCo)
-
-## Philosophy
-
-We believe in building tools that amplify human potential. Our approach combines:
-- **Science-backed formulations** for physiological optimization
-- **AI-powered systems** for behavioral accountability
-- **Modular architecture** for rapid iteration and independent development
-
-Every product we create is designed for the man committed to becoming the best version of himself.
+- **Design:** [Figma — SWORN Website](https://www.figma.com/design/pJ9Cdg0QcSqldJ0a3mElYB/Sworn-Website-Figma)
 
 ---
 
-*For questions or collaboration opportunities, reach out through our website.*
+**Built for the man you've sworn to become.**
