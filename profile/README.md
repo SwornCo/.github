@@ -31,7 +31,7 @@ Each directory is an independent git repository with its own remote.
 
 ---
 
-## AI Coach — [`ai-coach/`](ai-coach/)
+## AI Coach — [`ai-coach/`](https://github.com/SwornCo/ai-coach)
 
 TypeScript/Express backend that connects Shopify orders to a personalized SMS coaching experience powered by Claude. Handles the full user lifecycle: order → onboarding → daily check-ins → coaching → streak milestones → retention.
 
@@ -44,7 +44,7 @@ cd ai-coach && cp .env.example .env && npm install && npm run dev
 
 ---
 
-## Website — [`website/`](website/)
+## Website — [`website/`](https://github.com/SwornCo/website)
 
 The sworn.co marketing site. A responsive landing page built with Eleventy and SCSS, auto-deployed to Netlify on every push to `main`.
 
@@ -57,7 +57,7 @@ cd website && npm install && npm start
 
 ---
 
-## Marketing — [`marketing/`](marketing/)
+## Marketing — [`marketing/`](https://github.com/SwornCo/marketing)
 
 The single home for all brand, content, and campaign assets. Houses the product marketing context document (the source of truth read before any marketing task), approved copywriting, press releases, social media templates, science research, and strategic planning.
 
@@ -72,7 +72,7 @@ cd social/instagram && node capture.mjs
 
 ---
 
-## Ingredients Video — [`ingredients-video/`](ingredients-video/)
+## Ingredients Video — [`ingredients-video/`](https://github.com/SwornCo/ingredients-video/)
 
 Remotion-based video generator that creates ingredient breakdown animations for the website and social media channels.
 
