@@ -21,38 +21,16 @@ One scoop. One coach. One oath. Every day.
 
 ---
 
-## Repositories
+## Engineering
 
-| Repo | Purpose |
-|------|---------|
-| `website/` | Marketing website — Eleventy + Nunjucks + SCSS, deployed on Netlify |
-| `marketing/` | Marketing content — social media assets, copywriting, Instagram HTML-to-PNG pipeline |
-| `marketing-ops/` | Marketing operations — campaign tooling, automation, and analytics workflows |
-| `ai-coach/` | AI accountability coach — SMS-based coaching system |
-| `accounting/` | Financial operations and bookkeeping |
+Everything SWORN runs on lives in one consolidated monorepo — **`platform`**.
 
-## Shared Configuration
+| Repo | What it is |
+|------|------------|
+| [`platform`](https://github.com/SwornCo/platform) | One Elixir/Phoenix app (`:sworn`) — accounting, the AI SMS coach, marketing automation, and the internal admin console — deployed to a single host on a single Postgres. Also home to the Shopify storefront theme and the content workspaces. |
 
-### `CLAUDE.md`
-Cross-project guidelines for Claude Code — design principles, reusable UI patterns, and brand voice rules. Automatically loaded by any Claude Code session in any subdirectory.
+> Formerly five side-by-side services (website, marketing, marketing-ops, ai-coach, accounting). Consolidated into `platform` in 2026 — one app, one deploy, one database.
 
-### `.agents/product-marketing-context.md`
-Single source of truth for SWORN's product marketing context — brand voice, target audiences, IYKYK principle, two-layer marketing model, ingredient details, and competitive positioning. Used by the marketing-skills plugin across all repos.
+## Brand & voice
 
-Each repo symlinks to this file:
-
-```
-sworn/
-├── .agents/product-marketing-context.md   ← source of truth
-├── website/.agents/product-marketing-context.md → symlink
-├── marketing/.agents/product-marketing-context.md → symlink
-├── marketing-ops/.agents/product-marketing-context.md → symlink
-├── ai-coach/.agents/product-marketing-context.md → symlink
-└── accounting/.agents/product-marketing-context.md → symlink
-```
-
-To update the product marketing context, edit the root file — all repos pick up changes automatically:
-
-```bash
-vi .agents/product-marketing-context.md
-```
+`product-marketing-context.md` (in `platform`) is the single source of truth for SWORN's voice, audiences, and positioning — the IYKYK principle, the two-layer marketing model, ingredient details, and competitive framing. Edit it once; every surface draws from it.
